@@ -1,0 +1,28 @@
+{
+    "[json]": {
+        "editor.autoClosingBrackets": "always",
+        "editor.autoClosingQuotes": "always",
+        "editor.fontSize": 12,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+    },
+    "[vue]": {
+        "typescript.preferences.importModuleSpecifier": "shortest",
+        "emmet.triggerExpansionOnTab": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.indentSize": "tabSize"
+    },
+    "files.exclude": {
+        "**/public": true,
+        "**/node_modules": true,
+        "**/components/Acordion": true,
+        "**/components/Tabs": true,
+        "**/components/Page": true,
+        "**/Test/TestAccordion.vue": true,
+        "**/Test/TestPage.vue": true,
+        // "**/Test/TestModal.vue": true,
+        "**/Test/TestTabs.vue": true,
+    },
+    
+}

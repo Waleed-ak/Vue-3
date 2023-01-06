@@ -1,8 +1,7 @@
-import { Ref,ToRef } from "vue";
 /**
  * Acordion Panel Interface
  */
-export interface Panel {
+ interface Panel {
   /**Show or hide @type boolean */
   visable: boolean;
   /**unique id @type number */

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Test from './Test/TestTabs.vue';
+import Test from './Test/TestModal.vue';
 </script>
 <template>
   <Test />
