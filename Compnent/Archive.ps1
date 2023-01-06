@@ -1,0 +1,1 @@
+git archive --format=zip HEAD -o "..\$(($PWD).path |split-path -leaf) $((Get-Date).ToString("yyyyMMdd HHmmss")).zip"
