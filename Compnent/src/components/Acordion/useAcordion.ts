@@ -1,5 +1,4 @@
-import { Panel } from "./types.d";
-import { reactive, ref ,toRef} from "vue";
+import { reactive, toRef } from "vue";
 const PanelsCollection:Record<number,Panel[]>={}
 
 function getPanels(key:number):Panel[]{
