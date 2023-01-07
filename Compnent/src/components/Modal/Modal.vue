@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <transition name="modal">
-      <div class="modal" v-if="props.modelValue">
+      <div class="modal" v-if="myVal">
         <div class="mwrapper">
           <div class="mcontainer">
             <div class="mheader">
@@ -12,11 +12,10 @@
             </div>
             <div class="mfooter">
               <div class="mfooterSlot">
-              <slot name="footer" />
+                <slot name="footer" />
               </div>
-              <button class="mfooterClose" @click="close">Close</button>
+              <button class="mfooterClose" @click="myVal = false">Close</button>
             </div>
-            
           </div>
         </div>
       </div>
@@ -25,12 +24,21 @@
 </template>
 
 <script lang="ts" setup>
+import { toRefs, toRaw, computed } from "vue";
+
 const emits = defineEmits(["close", "update:modelValue"]);
 const props = defineProps<{ modelValue: boolean }>();
-function close() {
-  emits("close");
-  emits("update:modelValue", false);
-}
+const myVal = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(val) {
+    emits("update:modelValue", val);
+    if (!val) {
+      emits("close");
+    }
+  },
+});
 </script>
 
 <style lang="scss">
@@ -47,11 +55,11 @@ function close() {
   align-items: center;
   transition: opacity 0.4s ease;
 
-  &>.mwrapper {
-    --modelBgColor:linear-gradient(green, red, green);
-    --modelColor:black;
+  & > .mwrapper {
+    --modelBgColor: linear-gradient(green, red, green);
+    --modelColor: black;
 
-    &>.mcontainer {
+    & > .mcontainer {
       display: inline-block;
       min-width: 20vw;
       max-width: 98vw;
@@ -62,24 +70,24 @@ function close() {
       transition: all 0.4s ease;
       font-family: Helvetica, Arial, sans-serif;
 
-      &>.mheader {
+      & > .mheader {
         margin: 3px;
-        background:  var(--modelBgColor);
+        background: var(--modelBgColor);
         color: var(--modelColor);
       }
 
-      &>.mbody {
+      & > .mbody {
         margin: 5px;
       }
 
-      &>.mfooter {
+      & > .mfooter {
         margin: 3px;
         display: flex;
-        &>.mfooterSlot{
-          flex:auto;
+        & > .mfooterSlot {
+          flex: auto;
         }
-         &>.mfooterClose{
-          flex:none;
+        & > .mfooterClose {
+          flex: none;
         }
       }
     }
