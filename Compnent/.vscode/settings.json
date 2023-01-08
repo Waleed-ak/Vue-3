@@ -1,28 +1,31 @@
 {
-    "[json]": {
-        "editor.autoClosingBrackets": "always",
-        "editor.autoClosingQuotes": "always",
-        "editor.fontSize": 12,
-        "editor.formatOnSave": true,
-        "editor.formatOnPaste": true,
-    },
-    "[vue]": {
-        "typescript.preferences.importModuleSpecifier": "shortest",
-        "emmet.triggerExpansionOnTab": true,
-        "editor.tabSize": 2,
-        "editor.autoIndent": "advanced",
-        "editor.indentSize": "tabSize"
-    },
-    "files.exclude": {
-        "**/public": true,
-        "**/node_modules": true,
-        "**/components/Acordion": true,
-        "**/components/Tabs": true,
-        "**/components/Page": true,
-        "**/Test/TestAccordion.vue": true,
-        "**/Test/TestPage.vue": true,
-        // "**/Test/TestModal.vue": true,
-        "**/Test/TestTabs.vue": true,
-    },
-    
+  "editor.fontSize": 12,
+  "editor.formatOnSave": true, //optional
+  "editor.formatOnPaste": false, // required
+  "editor.tabSize": 2,
+  "editor.formatOnType": false, // required
+  "editor.autoIndent": "advanced",
+  "editor.indentSize": "tabSize",
+  "editor.formatOnSaveMode": "file", // required to format on save
+  "editor.inlayHints.enabled": "on",
+  "[json]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "typescript.preferences.importModuleSpecifier": "shortest",
+    "emmet.triggerExpansionOnTab": true
+  },
+  "files.exclude": {
+    "**/public": true,
+    "**/node_modules": true
+    // "**/components/Acordion": true,
+    // "**/components/Tabs": true,
+    // "**/components/Page": true,
+    // "**/Test/TestAccordion.vue": true,
+    // "**/Test/TestPage.vue": true,
+    // "**/Test/TestModal.vue": true,
+    // "**/Test/TestTabs.vue": true
+  }
 }

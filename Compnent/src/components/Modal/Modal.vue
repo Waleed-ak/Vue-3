@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <transition name="modal">
-      <div class="modal" v-if="myVal">
+      <div class="modal" v-if="modelValue">
         <div class="mwrapper">
           <div class="mcontainer">
             <div class="mheader">
@@ -14,7 +14,7 @@
               <div class="mfooterSlot">
                 <slot name="footer" />
               </div>
-              <button class="mfooterClose" @click="myVal = false">Close</button>
+              <button class="mfooterClose" @="onEvent">Close</button>
             </div>
           </div>
         </div>
@@ -24,21 +24,37 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs, toRaw, computed } from "vue";
+import { computed } from "vue";
 
-const emits = defineEmits(["close", "update:modelValue"]);
 const props = defineProps<{ modelValue: boolean }>();
-const myVal = computed({
-  get() {
-    return props.modelValue;
+const emits = defineEmits(["update:modelValue", "close"]);
+const onEvent = {
+  click: () => {
+    console.log("click");
+    modelValue.value = false;
+    emits("close");
   },
-  set(val) {
-    emits("update:modelValue", val);
-    if (!val) {
-      emits("close");
-    }
+  mouseover: () => {
+    console.log("mouseover");
   },
-});
+};
+
+const modelValue = compute("modelValue");
+
+function compute(key: keyof typeof props) {
+  return computed({
+    get: () => props[key],
+    set: (val) => {
+      emits(`update:${key}`, val);
+    },
+  });
+}
+// const modelValue = computed({
+//   get: () => props.modelValue,
+//   set: (val) => {
+//     emits("update:modelValue", val);
+//   },
+// });
 </script>
 
 <style lang="scss">
