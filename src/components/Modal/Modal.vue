@@ -33,10 +33,7 @@ const onEvent = {
     console.log("click");
     modelValue.value = false;
     emits("close");
-  },
-  mouseover: () => {
-    console.log("mouseover");
-  },
+  }
 };
 
 const modelValue = compute("modelValue");
