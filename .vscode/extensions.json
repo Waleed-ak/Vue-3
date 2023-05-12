@@ -2,6 +2,7 @@
   "recommendations": [
     "vue.volar",
     "vue.vscode-typescript-vue-plugin",
-    "ms-vscode.vs-keybindings"
+    "ms-vscode.vs-keybindings",
+    "pkief.material-icon-theme"
   ]
 }
