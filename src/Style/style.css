@@ -1,0 +1,218 @@
+:root {
+  --Color: rgba(255, 255, 255, 0.87);
+  --Color-a: #67f;
+  --Color-a-hover: rgba(255, 255, 255, 0.87);
+  --BgColor: #56f;
+  margin: 0;
+  font-size: 1rem;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: var(--Color);
+  background-color: var(--BgColor);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --Color: rgba(0, 0, 0, 0.87);
+    --BgColor: #aaa;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --Color: rgba(255, 255, 255, 0.87);
+    --BgColor: #242424;
+  }
+}
+a {
+  font-weight: 500;
+  color: var(--Color-a);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--Color-a-hover);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  width: 98%;
+  margin: auto;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+:is(header, footer, aside, main, body, .el-header, .el-footer, .el-aside, .el-main) {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical {
+  flex-direction: column;
+}
+.vertical > * {
+  width: 100%;
+}
+
+.horizontal {
+  flex-direction: row;
+}
+.horizontal > * {
+  height: 100%;
+}
+
+.fxContainer {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.fz30 {
+  font-size: 3 rem;
+}
+.fz20 {
+  font-size: 2 rem;
+}
+.fz16 {
+  font-size: 1.6 rem;
+}
+.fz14 {
+  font-size: 1.4 rem;
+}
+.fz12 {
+  font-size: 1.2 rem;
+}
+.fz08 {
+  font-size: 0.8 rem;
+}
+.fz06 {
+  font-size: 0.6 rem;
+}
+.fz05 {
+  font-size: 0.5 rem;
+}
+.fz04 {
+  font-size: 0.4 rem;
+}
+
+.fw1 {
+  font-weight: 80;
+}
+.fw2 {
+  font-weight: 100;
+}
+.fw3 {
+  font-weight: 250;
+}
+.fw4 {
+  font-weight: 400;
+}
+.fw5 {
+  font-weight: 600;
+}
+.fw6 {
+  font-weight: 800;
+}
+.fw-light {
+  font-weight: 200;
+}
+.fw-bold {
+  font-weight: 600;
+}
+.fw-bolder {
+  font-weight: 800;
+}
+
+.is1of12 {
+  width: 8.3325%;
+}
+.is2of12 {
+  width: 16.665%;
+}
+.is3of12 {
+  width: 24.9975%;
+}
+.is4of12 {
+  width: 33.33%;
+}
+.is5of12 {
+  width: 41.6625%;
+}
+.is6of12 {
+  width: 49.995%;
+}
+.is7of12 {
+  width: 58.3275%;
+}
+.is8of12 {
+  width: 66.66%;
+}
+.is9of12 {
+  width: 74.9925%;
+}
+.is10of12 {
+  width: 83.325%;
+}
+.is11of12 {
+  width: 91.6575%;
+}
+.is12of12 {
+  width: 99.99%;
+}
+
+.va-middle > * {
+  vertical-align: middle;
+}
+.va-top > * {
+  vertical-align: top;
+}
+.va-bottom > * {
+  vertical-align: bottom;
+}
+
+.fx {
+  display: flex;
+  margin: -0.75 rem;
+}
+.fx:first-child {
+  margin-top: 0.75 rem;
+}
+.fx:last-child {
+  margin-bottom: 0.75 rem;
+}
+.fx.vertical {
+  flex-direction: column;
+}
+.fx.horizontal {
+  flex-direction: row;
+}
+
+.fxItem {
+  display: block;
+  flex: 1;
+  padding: 0.75 rem;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.right {
+  float: right;
+}

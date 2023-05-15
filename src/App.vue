@@ -6,3 +6,6 @@ import {Error} from './components/Modal';
   <Test />
   <Error/>
 </template>
+<style lang="scss">
+@use "/src/style/style"
+</style>

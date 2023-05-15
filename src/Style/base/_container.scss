@@ -1,0 +1,24 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+:is(header, footer, aside, main, body, .el-header, .el-footer, .el-aside, .el-main) {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+@each $x, $y, $z in vertical column width, horizontal row height {
+  .#{$x} {
+    flex-direction: $y;
+    & > * {
+      #{$z}: 100%;
+    }
+  }
+}
+.fxContainer {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}

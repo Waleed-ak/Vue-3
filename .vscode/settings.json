@@ -17,6 +17,22 @@
     "typescript.preferences.importModuleSpecifier": "shortest",
     "emmet.triggerExpansionOnTab": true
   },
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.formats": [
+    // This is Default.
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": null
+    }
+    // You can add more
+    // {
+    //   "format": "compressed",
+    //   "extensionName": ".min.css",
+    //   "savePath": null
+    // }
+  ],
+
   "files.exclude": {
     "**/public": true,
     "**/node_modules": true

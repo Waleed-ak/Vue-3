@@ -1,0 +1,46 @@
+:root {
+  --Color: rgba(255, 255, 255, 0.87);
+  --Color-a: #67f;
+  --Color-a-hover: rgba(255, 255, 255, 0.87);
+  --BgColor: #222;
+  font-size: 1rem;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color-scheme: light dark;
+  // color: var(--Color);
+  // background-color: var(--BgColor);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --Color: rgba(0, 0, 0, 0.87);
+    --BgColor: #eee;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --Color: rgba(255, 255, 255, 0.87);
+    --BgColor: #222;
+  }
+}
+a {
+  font-weight: 500;
+  color: var(--Color-a);
+  text-decoration: inherit;
+  &:hover {
+    color: var(--Color-a-hover);
+  }
+}
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+#app {
+  width: 98%;
+  margin: auto;
+}

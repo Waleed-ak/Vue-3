@@ -1,0 +1,43 @@
+@use "sass:math";
+.is {
+  @for $i from 1 to 13 {
+    &#{$i}of12 {
+      width: math.div($i * 99.99%, 12);
+    }
+  }
+}
+.va {
+  @each $x in middle, top, bottom {
+    &-#{$x} > * {
+      vertical-align: $x;
+    }
+  }
+}
+
+.fx {
+  display: flex;
+  margin: -0.75 rem;
+  &:first-child {
+    margin-top: 0.75 rem;
+  }
+  &:last-child {
+    margin-bottom: 0.75 rem;
+  }
+  @each $x, $y in vertical column, horizontal row {
+    &.#{$x} {
+      flex-direction: $y;
+    }
+  }
+}
+.fxItem {
+  display: block;
+  flex: 1;
+  padding: (0.75) rem;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.right {
+  float: right;
+}
