@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button @click="Show">Show Model</button>
-    <button @click="ShowError">Show Error</button>
+    <button class="btn" @click="Show">Show Model</button>
+    <button class="btn" @click="ShowError">Show Error</button>
   </div>
   <Modal v-model="showIf" @close="close">
     <template #header>Header </template>
@@ -31,5 +31,5 @@ function close(): void {
 </script>
 
 <style lang="scss">
-
+@use "/src/Style/style.scss"
 </style>

@@ -1,0 +1,42 @@
+@use "root";
+.btn {
+  --ColorBtn: var(--Color);
+  --ColorBtnBg: var(--BgColor);
+  --ColorBtnBorder: var(--Color);
+  --ColorBtnHover: var(--BgColorHover);
+  --RadiusBtnBorder: 0.3rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--ColorBtn);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: 400;
+  user-select: none;
+  vertical-align: middle;
+  background-color: var(--ColorBtnBg);
+  border: thin solid var(--ColorBtnBorder);
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: var(--RadiusBtnBorder);
+  & + .btn {
+    margin-left: 0.4rem;
+  }
+  &:where(:hover, :focus) {
+    background-color: var(--ColorBtnHover);
+  }
+  @each $x in Primary, Info, Success, Warning, Alert, Danger {
+    &.#{to-lower-case($x)} {
+      --ColorBtn: var(--Color#{$x});
+      --ColorBtnBg: var(--Color#{$x}Bg);
+      --ColorBtnBorder: var(--Color#{$x}Border);
+      --ColorBtnHover: var(--Color#{$x}Hover);
+    }
+  }
+}

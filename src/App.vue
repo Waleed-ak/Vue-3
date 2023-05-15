@@ -7,5 +7,4 @@ import {Error} from './components/Modal';
   <Error/>
 </template>
 <style lang="scss">
-@use "/src/style/style"
 </style>

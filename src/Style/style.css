@@ -2,8 +2,28 @@
   --Color: rgba(255, 255, 255, 0.87);
   --Color-a: #67f;
   --Color-a-hover: rgba(255, 255, 255, 0.87);
-  --BgColor: #56f;
-  margin: 0;
+  --BgColor: #222;
+  --BgColorHover: #333;
+  --ColorPrimary: rgb(255, 255, 255);
+  --ColorPrimaryBg: #408ad4;
+  --ColorPrimaryBorder: #408ad4;
+  --ColorPrimaryHover: #25609b;
+  --ColorSuccess: rgb(255, 255, 255);
+  --ColorSuccessBg: #549931;
+  --ColorSuccessBorder: #549931;
+  --ColorSuccessHover: #254c12;
+  --ColorInfo: #fff;
+  --ColorInfoBg: #333;
+  --ColorInfoBorder: #333;
+  --ColorInfoHover: #242222;
+  --ColorWarning: #fff;
+  --ColorWarningBg: #e19727;
+  --ColorWarningBorder: #e19727;
+  --ColorWarningHover: #83550f;
+  --ColorDanger: #fff;
+  --ColorDangerBg: #e05656;
+  --ColorDangerBorder: #e05656;
+  --ColorDangerHover: #942f2f;
   font-size: 1rem;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5rem;
@@ -21,13 +41,30 @@
 @media (prefers-color-scheme: light) {
   :root {
     --Color: rgba(0, 0, 0, 0.87);
-    --BgColor: #aaa;
+    --BgColor: #eee;
+    --BgColorHover: #fff;
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --Color: rgba(255, 255, 255, 0.87);
-    --BgColor: #242424;
+    --BgColor: #222;
+    --BgColorHover: #333;
+  }
+}
+/* For browsers that support automatic dark/light mode
+   As well as system colors, set those */
+@supports (color-scheme: light dark) and (background-color: Canvas) and (color: CanvasText) {
+  :root {
+    --Color: CanvasText;
+    --BgColor: Canvas;
+  }
+}
+/* For Safari on iOS. Hacky, but it works. */
+@supports (background-color: -apple-system-control-background) and (color: text) {
+  :root {
+    --Color: text;
+    --BgColor: -apple-system-control-background;
   }
 }
 a {
@@ -215,4 +252,76 @@ body {
 
 .right {
   float: right;
+}
+
+.btn {
+  --ColorBtn: var(--Color);
+  --ColorBtnBg: var(--BgColor);
+  --ColorBtnBorder: var(--Color);
+  --ColorBtnHover: var(--BgColorHover);
+  --RadiusBtnBorder: 0.3rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--ColorBtn);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: 400;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  vertical-align: middle;
+  background-color: var(--ColorBtnBg);
+  border: thin solid var(--ColorBtnBorder);
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: var(--RadiusBtnBorder);
+}
+.btn + .btn {
+  margin-left: 0.4rem;
+}
+.btn:where(:hover, :focus) {
+  background-color: var(--ColorBtnHover);
+}
+.btn.primary {
+  --ColorBtn: var(--ColorPrimary);
+  --ColorBtnBg: var(--ColorPrimaryBg);
+  --ColorBtnBorder: var(--ColorPrimaryBorder);
+  --ColorBtnHover: var(--ColorPrimaryHover);
+}
+.btn.info {
+  --ColorBtn: var(--ColorInfo);
+  --ColorBtnBg: var(--ColorInfoBg);
+  --ColorBtnBorder: var(--ColorInfoBorder);
+  --ColorBtnHover: var(--ColorInfoHover);
+}
+.btn.success {
+  --ColorBtn: var(--ColorSuccess);
+  --ColorBtnBg: var(--ColorSuccessBg);
+  --ColorBtnBorder: var(--ColorSuccessBorder);
+  --ColorBtnHover: var(--ColorSuccessHover);
+}
+.btn.warning {
+  --ColorBtn: var(--ColorWarning);
+  --ColorBtnBg: var(--ColorWarningBg);
+  --ColorBtnBorder: var(--ColorWarningBorder);
+  --ColorBtnHover: var(--ColorWarningHover);
+}
+.btn.alert {
+  --ColorBtn: var(--ColorAlert);
+  --ColorBtnBg: var(--ColorAlertBg);
+  --ColorBtnBorder: var(--ColorAlertBorder);
+  --ColorBtnHover: var(--ColorAlertHover);
+}
+.btn.danger {
+  --ColorBtn: var(--ColorDanger);
+  --ColorBtnBg: var(--ColorDangerBg);
+  --ColorBtnBorder: var(--ColorDangerBorder);
+  --ColorBtnHover: var(--ColorDangerHover);
 }
