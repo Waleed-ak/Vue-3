@@ -8,8 +8,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  line-height: 1;
-  height: 32px;
+  // line-height: 2rem;
+  // height: 1.5rem;
   white-space: nowrap;
   cursor: pointer;
   color: var(--ColorBtn);
@@ -22,11 +22,14 @@
   vertical-align: middle;
   background-color: var(--ColorBtnBg);
   border: thin solid var(--ColorBtnBorder);
-  padding: 0.5rem;
+  padding: 0.3rem 1rem;
   font-size: 1rem;
   border-radius: var(--RadiusBtnBorder);
   & + .btn {
     margin-left: 0.4rem;
+  }
+  &.round {
+    --RadiusBtnBorder: 2rem;
   }
   &:where(:hover, :focus) {
     background-color: var(--ColorBtnHover);
