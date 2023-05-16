@@ -3,6 +3,8 @@
     "vue.volar",
     "vue.vscode-typescript-vue-plugin",
     "ms-vscode.vs-keybindings",
-    "pkief.material-icon-theme"
+    "pkief.material-icon-theme",
+    "tyriar.windows-terminal",
+    "antfu.vite"
   ]
 }

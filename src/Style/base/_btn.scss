@@ -1,45 +1,77 @@
 @use "root";
+
 .btn {
   --ColorBtn: var(--Color);
-  --ColorBtnBg: var(--BgColor);
+  --ColorBtnBg: linear-gradient(var(--BgColor), var(--BgColor), var(--BgColor));
   --ColorBtnBorder: var(--Color);
-  --ColorBtnHover: var(--BgColorHover);
+  --ColorBtnHover: linear-gradient(var(--BgColorHover), var(--BgColorHover), var(--BgColorHover));
   --RadiusBtnBorder: 0.3rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  // line-height: 2rem;
-  // height: 1.5rem;
   white-space: nowrap;
   cursor: pointer;
   color: var(--ColorBtn);
   text-align: center;
   box-sizing: border-box;
   outline: none;
-  transition: 0.1s;
   font-weight: 400;
   user-select: none;
   vertical-align: middle;
-  background-color: var(--ColorBtnBg);
+  background: var(--ColorBtnBg);
   border: thin solid var(--ColorBtnBorder);
   padding: 0.3rem 1rem;
   font-size: 1rem;
   border-radius: var(--RadiusBtnBorder);
-  & + .btn {
+  transition: all 1s ease-in-out;
+
+  &+.btn {
     margin-left: 0.4rem;
   }
+
+  &.plain {
+    --ColorBtnBg: var(--BgColor);
+    --ColorBtn: var(--ColorBtnBorder);
+
+    &:hover {
+      --ColorBtn: var(--ColorBtn);
+    }
+  }
+
   &.round {
     --RadiusBtnBorder: 2rem;
   }
+
   &:where(:hover, :focus) {
-    background-color: var(--ColorBtnHover);
+    background: var(--ColorBtnHover);
+    transition: opacity 3s ease-in-out;
   }
-  @each $x in Primary, Info, Success, Warning, Alert, Danger {
+
+  @each $x in Primary,
+  Info,
+  Success,
+  Warning,
+  Alert,
+  Danger {
     &.#{to-lower-case($x)} {
       --ColorBtn: var(--Color#{$x});
-      --ColorBtnBg: var(--Color#{$x}Bg);
+      --ColorBtnBg: linear-gradient(var(--Color#{$x}Bg), var(--Color#{$x}Bg), var(--Color#{$x}Bg));
       --ColorBtnBorder: var(--Color#{$x}Border);
-      --ColorBtnHover: var(--Color#{$x}Hover);
+      --ColorBtnHover: linear-gradient(var(--Color#{$x}Hover), var(--Color#{$x}Hover), var(--Color#{$x}Hover));
+
+      &.gradient {
+        --ColorBtnBg: linear-gradient(var(--Color#{$x}Bg), #222, var(--Color#{$x}Bg));
+        --ColorBtnHover: linear-gradient(var(--Color#{$x}Hover), #222, var(--Color#{$x}Hover));
+      }
+
+      &.plain {
+        --ColorBtnBg: var(--BgColor);
+        --ColorBtn: var(--ColorBtnBorder);
+
+        &:hover {
+          --ColorBtn: var(--Color#{$x});
+        }
+      }
     }
   }
 }

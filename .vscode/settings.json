@@ -32,7 +32,8 @@
     //   "savePath": null
     // }
   ],
-
+  "vite.autoStart": true,
+  "vite.browserType": "system",
   "files.exclude": {
     "**/public": true,
     "**/node_modules": true

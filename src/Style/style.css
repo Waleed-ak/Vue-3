@@ -256,9 +256,9 @@ body {
 
 .btn {
   --ColorBtn: var(--Color);
-  --ColorBtnBg: var(--BgColor);
+  --ColorBtnBg: linear-gradient(var(--BgColor), var(--BgColor), var(--BgColor));
   --ColorBtnBorder: var(--Color);
-  --ColorBtnHover: var(--BgColorHover);
+  --ColorBtnHover: linear-gradient(var(--BgColorHover), var(--BgColorHover), var(--BgColorHover));
   --RadiusBtnBorder: 0.3rem;
   display: inline-flex;
   justify-content: center;
@@ -269,60 +269,134 @@ body {
   text-align: center;
   box-sizing: border-box;
   outline: none;
-  transition: 0.1s;
   font-weight: 400;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   vertical-align: middle;
-  background-color: var(--ColorBtnBg);
+  background: var(--ColorBtnBg);
   border: thin solid var(--ColorBtnBorder);
   padding: 0.3rem 1rem;
   font-size: 1rem;
   border-radius: var(--RadiusBtnBorder);
+  transition: all 1s ease-in-out;
 }
 .btn + .btn {
   margin-left: 0.4rem;
+}
+.btn.plain {
+  --ColorBtnBg: var(--BgColor);
+  --ColorBtn: var(--ColorBtnBorder);
+}
+.btn.plain:hover {
+  --ColorBtn: var(--ColorBtn);
 }
 .btn.round {
   --RadiusBtnBorder: 2rem;
 }
 .btn:where(:hover, :focus) {
-  background-color: var(--ColorBtnHover);
+  background: var(--ColorBtnHover);
+  transition: opacity 3s ease-in-out;
 }
 .btn.primary {
   --ColorBtn: var(--ColorPrimary);
-  --ColorBtnBg: var(--ColorPrimaryBg);
+  --ColorBtnBg: linear-gradient(var(--ColorPrimaryBg), var(--ColorPrimaryBg), var(--ColorPrimaryBg));
   --ColorBtnBorder: var(--ColorPrimaryBorder);
-  --ColorBtnHover: var(--ColorPrimaryHover);
+  --ColorBtnHover: linear-gradient(var(--ColorPrimaryHover), var(--ColorPrimaryHover), var(--ColorPrimaryHover));
+}
+.btn.primary.gradient {
+  --ColorBtnBg: linear-gradient(var(--ColorPrimaryBg), #222, var(--ColorPrimaryBg));
+  --ColorBtnHover: linear-gradient(var(--ColorPrimaryHover), #222, var(--ColorPrimaryHover));
+}
+.btn.primary.plain {
+  --ColorBtnBg: var(--BgColor);
+  --ColorBtn: var(--ColorBtnBorder);
+}
+.btn.primary.plain:hover {
+  --ColorBtn: var(--ColorPrimary);
 }
 .btn.info {
   --ColorBtn: var(--ColorInfo);
-  --ColorBtnBg: var(--ColorInfoBg);
+  --ColorBtnBg: linear-gradient(var(--ColorInfoBg), var(--ColorInfoBg), var(--ColorInfoBg));
   --ColorBtnBorder: var(--ColorInfoBorder);
-  --ColorBtnHover: var(--ColorInfoHover);
+  --ColorBtnHover: linear-gradient(var(--ColorInfoHover), var(--ColorInfoHover), var(--ColorInfoHover));
+}
+.btn.info.gradient {
+  --ColorBtnBg: linear-gradient(var(--ColorInfoBg), #222, var(--ColorInfoBg));
+  --ColorBtnHover: linear-gradient(var(--ColorInfoHover), #222, var(--ColorInfoHover));
+}
+.btn.info.plain {
+  --ColorBtnBg: var(--BgColor);
+  --ColorBtn: var(--ColorBtnBorder);
+}
+.btn.info.plain:hover {
+  --ColorBtn: var(--ColorInfo);
 }
 .btn.success {
   --ColorBtn: var(--ColorSuccess);
-  --ColorBtnBg: var(--ColorSuccessBg);
+  --ColorBtnBg: linear-gradient(var(--ColorSuccessBg), var(--ColorSuccessBg), var(--ColorSuccessBg));
   --ColorBtnBorder: var(--ColorSuccessBorder);
-  --ColorBtnHover: var(--ColorSuccessHover);
+  --ColorBtnHover: linear-gradient(var(--ColorSuccessHover), var(--ColorSuccessHover), var(--ColorSuccessHover));
+}
+.btn.success.gradient {
+  --ColorBtnBg: linear-gradient(var(--ColorSuccessBg), #222, var(--ColorSuccessBg));
+  --ColorBtnHover: linear-gradient(var(--ColorSuccessHover), #222, var(--ColorSuccessHover));
+}
+.btn.success.plain {
+  --ColorBtnBg: var(--BgColor);
+  --ColorBtn: var(--ColorBtnBorder);
+}
+.btn.success.plain:hover {
+  --ColorBtn: var(--ColorSuccess);
 }
 .btn.warning {
   --ColorBtn: var(--ColorWarning);
-  --ColorBtnBg: var(--ColorWarningBg);
+  --ColorBtnBg: linear-gradient(var(--ColorWarningBg), var(--ColorWarningBg), var(--ColorWarningBg));
   --ColorBtnBorder: var(--ColorWarningBorder);
-  --ColorBtnHover: var(--ColorWarningHover);
+  --ColorBtnHover: linear-gradient(var(--ColorWarningHover), var(--ColorWarningHover), var(--ColorWarningHover));
+}
+.btn.warning.gradient {
+  --ColorBtnBg: linear-gradient(var(--ColorWarningBg), #222, var(--ColorWarningBg));
+  --ColorBtnHover: linear-gradient(var(--ColorWarningHover), #222, var(--ColorWarningHover));
+}
+.btn.warning.plain {
+  --ColorBtnBg: var(--BgColor);
+  --ColorBtn: var(--ColorBtnBorder);
+}
+.btn.warning.plain:hover {
+  --ColorBtn: var(--ColorWarning);
 }
 .btn.alert {
   --ColorBtn: var(--ColorAlert);
-  --ColorBtnBg: var(--ColorAlertBg);
+  --ColorBtnBg: linear-gradient(var(--ColorAlertBg), var(--ColorAlertBg), var(--ColorAlertBg));
   --ColorBtnBorder: var(--ColorAlertBorder);
-  --ColorBtnHover: var(--ColorAlertHover);
+  --ColorBtnHover: linear-gradient(var(--ColorAlertHover), var(--ColorAlertHover), var(--ColorAlertHover));
+}
+.btn.alert.gradient {
+  --ColorBtnBg: linear-gradient(var(--ColorAlertBg), #222, var(--ColorAlertBg));
+  --ColorBtnHover: linear-gradient(var(--ColorAlertHover), #222, var(--ColorAlertHover));
+}
+.btn.alert.plain {
+  --ColorBtnBg: var(--BgColor);
+  --ColorBtn: var(--ColorBtnBorder);
+}
+.btn.alert.plain:hover {
+  --ColorBtn: var(--ColorAlert);
 }
 .btn.danger {
   --ColorBtn: var(--ColorDanger);
-  --ColorBtnBg: var(--ColorDangerBg);
+  --ColorBtnBg: linear-gradient(var(--ColorDangerBg), var(--ColorDangerBg), var(--ColorDangerBg));
   --ColorBtnBorder: var(--ColorDangerBorder);
-  --ColorBtnHover: var(--ColorDangerHover);
+  --ColorBtnHover: linear-gradient(var(--ColorDangerHover), var(--ColorDangerHover), var(--ColorDangerHover));
+}
+.btn.danger.gradient {
+  --ColorBtnBg: linear-gradient(var(--ColorDangerBg), #222, var(--ColorDangerBg));
+  --ColorBtnHover: linear-gradient(var(--ColorDangerHover), #222, var(--ColorDangerHover));
+}
+.btn.danger.plain {
+  --ColorBtnBg: var(--BgColor);
+  --ColorBtn: var(--ColorBtnBorder);
+}
+.btn.danger.plain:hover {
+  --ColorBtn: var(--ColorDanger);
 }
