@@ -1,4 +1,7 @@
+
 <template>
+<!-- /// <reference path="/src/Style/style.scss" /> -->
+
   <div>
     <button class="btn" @click="Show">Show Model</button>
     <button class="btn" @click="ShowError">Show Error</button>
@@ -31,5 +34,4 @@ function close(): void {
 </script>
 
 <style lang="scss">
-@use "/src/Style/style.scss"
 </style>

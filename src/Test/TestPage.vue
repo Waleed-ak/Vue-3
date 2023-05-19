@@ -1,3 +1,6 @@
+<script lang="ts" setup>
+import { Page } from '../components/Page';
+</script>
 <template>
 	<Page>
 		<template #header>..Header</template>
@@ -8,10 +11,6 @@
 	</Page>
 </template>
 
-<script lang="ts" setup>
-import { Page } from '../components/Page';
-Page
-</script>
 
 <style lang="scss">
 
