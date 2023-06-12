@@ -2,23 +2,31 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
+  > #app {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
 }
-:is(header, footer, aside, main, body, .el-header, .el-footer, .el-aside, .el-main) {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-}
-@each $x, $y, $z in vertical column width, horizontal row height {
-  .#{$x} {
+
+@each $x, $y, $z in ((Cols, row, height), (Rows, column, width)) {
+  .con#{$x} {
+    display: flex;
     flex-direction: $y;
+    margin: 0;
     & > * {
-      #{$z}: 100%;
+      #{$z}: 99.7%;
     }
   }
 }
-.fxContainer {
-  flex: 1;
-  height: 100%;
+.conElement {
+  background-color: azure;
+  border-radius: 3;
+  border: 1px solid #ddd;
+}
+.conBody {
+  background-color: aqua;
+  flex: auto;
   width: 100%;
+  height: 100%;
 }

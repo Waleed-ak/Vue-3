@@ -1,0 +1,7 @@
+@each $x1, $x2 in((is, width), (ism, min-width), (isx, max-width)) {
+  @for $i from 1 to 26 {
+    .#{$x1}#{$i} {
+      #{$x2}: calc(4% * $i);
+    }
+  }
+}

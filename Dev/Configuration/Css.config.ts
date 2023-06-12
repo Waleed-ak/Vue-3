@@ -9,12 +9,12 @@ import {
   ServerOptions,
   UserConfig,
 } from "vite";
-import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
+import { resolve } from "node:path";
 const plugins = [vue(), compression(), splitVendorChunkPlugin()];
 
-const rootDir = resolve("../../", "src");
-const outDir = resolve("./", "dist");
+const rootDir = process.cwd();
+const outDir = resolve(rootDir, "dist");
 const Pages = {
   Style: "/src/style/style.scss",
   Main: "/src/main.ts",
@@ -90,9 +90,6 @@ function GetServer(page: string): ServerOptions {
       console.error();
     });
     proxy.on("proxyReq", (proxyReq, req, _res) => {
-      // console.log("Sending Request:")
-      // console.log(req.method)
-      // console.log(req.url)
       console.log("=>");
       console.log("Proxy-Request------------------");
       console.log("method  -> ", proxyReq.method);
@@ -103,22 +100,15 @@ function GetServer(page: string): ServerOptions {
       console.log(proxyReq.getHeaders());
       console.log();
     });
-    proxy.on(
-      "proxyRes",
-      (
-        proxyRes: { statusCode: any; headers: any },
-        req: { url: any },
-        _res: any
-      ) => {
-        console.log("=>");
-        console.log("Proxy-Response-----------------");
-        console.log("statusCode-> ", proxyRes.statusCode);
-        console.log("url       -> ", req.url);
-        console.log("Proxy-Header->");
-        console.log(proxyRes.headers);
-        console.log();
-      }
-    );
+    proxy.on("proxyRes", (proxyRes, req, _res) => {
+      console.log("=>");
+      console.log("Proxy-Response-----------------");
+      console.log("statusCode-> ", proxyRes.statusCode);
+      console.log("url       -> ", req.url);
+      console.log("Proxy-Header->");
+      console.log(proxyRes.headers);
+      console.log();
+    });
   }
 
   return {

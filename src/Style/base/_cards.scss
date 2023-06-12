@@ -1,0 +1,12 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  .card {
+    display: flex;
+    flex-direction: column;
+    .content {
+      flex: 1;
+    }
+  }
+}
