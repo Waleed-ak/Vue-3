@@ -21,8 +21,8 @@ $themes: (
   ),
   light: (
     --Color: #fffd,
-    --Color-a: #67f,
-    --Color-a-hover: #fffd,
+    --ColorLink: #67f,
+    --ColorLinkHover: #fffd,
     --BgColor: #222,
     --BgColorHover: #333,
     --ColorPrimary: #fff,
@@ -32,8 +32,8 @@ $themes: (
   ),
   dark: (
     --Color: #000d,
-    --Color-a: #980,
-    --Color-a-hover: #000d,
+    --ColorLink: #980,
+    --ColorLinkHover: #000d,
     --BgColor: #ddd,
     --BgColorHover: #ccc,
     --ColorPrimary: #000,
@@ -94,10 +94,10 @@ $themes: (
 }
 a {
   font-weight: 500;
-  color: var(--Color-a);
+  color: var(--ColorLink);
   text-decoration: inherit;
   &:hover {
-    color: var(--Color-a-hover);
+    color: var(--ColorLinkHover);
   }
 }
 h1 {
