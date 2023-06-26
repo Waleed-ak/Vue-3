@@ -23,7 +23,7 @@
   &:last-child {
     margin-bottom: 0.75 rem;
   }
-  @each $x, $y in vertical column, horizontal row {
+  @each $x, $y in ((vertical, column), (horizontal, row)) {
     &.#{$x} {
       flex-direction: $y;
     }

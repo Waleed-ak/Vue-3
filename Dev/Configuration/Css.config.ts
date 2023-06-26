@@ -1,4 +1,5 @@
 import compression from "vite-plugin-compression";
+import { resolve } from 'node:path/win32';
 import {
   splitVendorChunkPlugin,
   BuildOptions,
@@ -9,7 +10,6 @@ import {
   ServerOptions,
   UserConfig,
 } from "vite";
-import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
 const plugins = [vue(), compression(), splitVendorChunkPlugin()];
 
@@ -32,15 +32,17 @@ const currentBuild = (command: string, mode: string): BuildOptions => {
     let name = assetInfo.name || "";
     if (/CPIcoMoon/i.test(name)) {
       return `fonts/[name]${hash}[extname]`;
-    } else if (/.css/i.test(name)) {
-      return `Css/[name]${hash}${minfile}[extname]`;
-    } else if (/.png|.jpe?g|.svg|.gif|.tiff|.bmp|.ico/i.test(name)) {
-      return `imgs/[name]${hash}[extname]`;
-    } else if (/.html/i.test(name)) {
-      return `html/[name][extname]`;
-    } else {
-      return `js/[name]${hash}${minfile}.js`;
     }
+    if (/.css/i.test(name)) {
+      return `Css/[name]${hash}${minfile}[extname]`;
+    }
+    if (/.png|.jpe?g|.svg|.gif|.tiff|.bmp|.ico/i.test(name)) {
+      return `imgs/[name]${hash}[extname]`;
+    }
+    if (/.html/i.test(name)) {
+      return `html/[name][extname]`;
+    }
+    return `js/[name]${hash}${minfile}.js`;
   };
 
   return {
