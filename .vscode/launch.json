@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "name": "dev",
+      "request": "launch",
+      "command": "pnpm exec 'vite'",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node-terminal",
+      "name": "build",
+      "request": "launch",
+      "command": "pnpm exec 'vite build'",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node-terminal",
+      "name": "lintBuild",
+      "request": "launch",
+      "command": "pnpm run build",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

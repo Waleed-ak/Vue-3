@@ -1,0 +1,99 @@
+:root {
+  --Color: rgba(255, 255, 255, 0.8666666667);
+  --Color-a: #67f;
+  --Color-a-hover: rgba(255, 255, 255, 0.8666666667);
+  --BgColor: #222;
+  --BgColorHover: #333;
+  --ColorPrimary: #fff;
+  --ColorPrimaryBg: #408ad4;
+  --ColorPrimaryBorder: #408ad4;
+  --ColorPrimaryHover: #25609b;
+  --ColorSuccess: #fff;
+  --ColorSuccessBg: #549931;
+  --ColorSuccessBorder: #549931;
+  --ColorSuccessHover: #254c12;
+  --ColorInfo: #fff;
+  --ColorInfoBg: #333;
+  --ColorInfoBorder: #333;
+  --ColorInfoHover: #242222;
+  --ColorWarning: #fff;
+  --ColorWarningBg: #e19727;
+  --ColorWarningBorder: #e19727;
+  --ColorWarningHover: #83550f;
+  --ColorDanger: #fff;
+  --ColorDangerBg: #e05656;
+  --ColorDangerBorder: #e05656;
+  --ColorDangerHover: #942f2f;
+  font-size: 1rem;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: var(--Color);
+  background-color: var(--BgColor);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --Color: rgba(255, 255, 255, 0.8666666667);
+    --Color-a: #67f;
+    --Color-a-hover: rgba(255, 255, 255, 0.8666666667);
+    --BgColor: #222;
+    --BgColorHover: #333;
+    --ColorPrimary: #fff;
+    --ColorPrimaryBg: #408ad4;
+    --ColorPrimaryBorder: #408ad4;
+    --ColorPrimaryHover: #25609b;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --Color: rgba(0, 0, 0, 0.8666666667);
+    --Color-a: #980;
+    --Color-a-hover: rgba(0, 0, 0, 0.8666666667);
+    --BgColor: #ddd;
+    --BgColorHover: #ccc;
+    --ColorPrimary: #000;
+    --ColorPrimaryBg: #bf752b;
+    --ColorPrimaryBorder: #bf752b;
+    --ColorPrimaryHover: #da9f64;
+  }
+}
+/* For browsers that support automatic dark/light mode
+   As well as system colors, set those */
+@supports (color-scheme: light dark) and (background-color: Canvas) and (color: CanvasText) {
+  :root {
+    --Color: CanvasText;
+    --BgColor: Canvas;
+  }
+}
+/* For Safari on iOS. Hacky, but it works. */
+@supports (background-color: -apple-system-control-background) and (color: text) {
+  :root {
+    --Color: text;
+    --BgColor: -apple-system-control-background;
+  }
+}
+a {
+  font-weight: 500;
+  color: var(--Color-a);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--Color-a-hover);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  width: 98%;
+  margin: auto;
+}

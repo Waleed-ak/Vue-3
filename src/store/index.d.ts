@@ -1,0 +1,16 @@
+export type Act = () => void;
+export type Act1<T1> = (T1) => void;
+export type Act2<T1, T2> = (T1, T2) => void;
+export type Act3<T1, T2, T3> = (T1, T2, T3) => void;
+export type ActAsync = () => Promise<void>;
+export type ActAsync1<T1> = (T1) => Promise<void>;
+export type ActAsync2<T1, T2> = (T1, T2) => Promise<void>;
+export type ActAsync3<T1, T2, T3> = (T1, T2, T3) => Promise<void>;
+export type Func<T> = () => T;
+export type Func1<T, T1> = (T1) => T;
+export type Func2<T, T1, T2> = (T1, T2) => T;
+export type Func3<T, T1, T2, T3> = (T1, T2, T3) => T;
+export type FuncAsync<T> = () => Promise<T>;
+export type FuncAsync1<T, T1> = (T1) => Promise<T>;
+export type FuncAsync2<T, T1, T2> = (T1, T2) => Promise<T>;
+export type FuncAsync3<T, T1, T2, T3> = (T1, T2, T3) => Promise<T>;

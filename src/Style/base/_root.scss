@@ -1,33 +1,61 @@
 @use "sass:color";
+
+$themes: (
+  default: (
+    --ColorSuccess: #fff,
+    --ColorSuccessBg: #549931,
+    --ColorSuccessBorder: #549931,
+    --ColorSuccessHover: #254c12,
+    --ColorInfo: #fff,
+    --ColorInfoBg: #333,
+    --ColorInfoBorder: #333,
+    --ColorInfoHover: #242222,
+    --ColorWarning: #fff,
+    --ColorWarningBg: #e19727,
+    --ColorWarningBorder: #e19727,
+    --ColorWarningHover: #83550f,
+    --ColorDanger: #fff,
+    --ColorDangerBg: #e05656,
+    --ColorDangerBorder: #e05656,
+    --ColorDangerHover: #942f2f,
+  ),
+  light: (
+    --Color: #fffd,
+    --ColorLink: #67f,
+    --ColorLinkHover: #fffd,
+    --BgColor: #222,
+    --BgColorHover: #333,
+    --ColorPrimary: #fff,
+    --ColorPrimaryBg: #408ad4,
+    --ColorPrimaryBorder: #408ad4,
+    --ColorPrimaryHover: #25609b,
+  ),
+  dark: (
+    --Color: #000d,
+    --ColorLink: #980,
+    --ColorLinkHover: #000d,
+    --BgColor: #ddd,
+    --BgColorHover: #ccc,
+    --ColorPrimary: #000,
+    --ColorPrimaryBg: #bf752b,
+    --ColorPrimaryBorder: #bf752b,
+    --ColorPrimaryHover: #da9f64,
+  ),
+);
+
+@mixin customizeTheme($arg: default) {
+  $theme: map-get($themes, $arg);
+  @each $var, $val in $theme {
+    #{$var}: #{$val};
+  }
+}
+
 :root {
-  --Color: rgba(255, 255, 255, 0.87);
-  --Color-a: #67f;
-  --Color-a-hover: rgba(255, 255, 255, 0.87);
-  --BgColor: #222;
-  --BgColorHover: #333;
-  --ColorPrimary: rgb(255, 255, 255);
-  --ColorPrimaryBg: #408ad4;
-  --ColorPrimaryBorder: #408ad4;
-  --ColorPrimaryHover: #25609b;
-  --ColorSuccess: rgb(255, 255, 255);
-  --ColorSuccessBg: #549931;
-  --ColorSuccessBorder: #549931;
-  --ColorSuccessHover: #254c12;
-  --ColorInfo: #fff;
-  --ColorInfoBg: #333;
-  --ColorInfoBorder: #333;
-  --ColorInfoHover: #242222;
-  --ColorWarning: #fff;
-  --ColorWarningBg: #e19727;
-  --ColorWarningBorder: #e19727;
-  --ColorWarningHover: #83550f;
-  --ColorDanger: #fff;
-  --ColorDangerBg: #e05656;
-  --ColorDangerBorder: #e05656;
-  --ColorDangerHover: #942f2f;
+  @include customizeTheme(light);
+  @include customizeTheme();
   font-size: 1rem;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.4rem;
   font-weight: 400;
   color-scheme: light dark;
   color: var(--Color);
@@ -40,16 +68,12 @@
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --Color: rgba(0, 0, 0, 0.87);
-    --BgColor: #eee;
-    --BgColorHover: #fff;
+    @include customizeTheme(light);
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --Color: rgba(255, 255, 255, 0.87);
-    --BgColor: #222;
-    --BgColorHover: #333;
+    @include customizeTheme(dark);
   }
 }
 //https://blog.jim-nielsen.com/2021/css-system-colors/
@@ -70,10 +94,10 @@
 }
 a {
   font-weight: 500;
-  color: var(--Color-a);
+  color: var(--ColorLink);
   text-decoration: inherit;
   &:hover {
-    color: var(--Color-a-hover);
+    color: var(--ColorLinkHover);
   }
 }
 h1 {

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import '../Style/style.scss'
 import { Page } from '../components/Page';
 </script>
 <template>
@@ -13,5 +14,4 @@ import { Page } from '../components/Page';
 
 
 <style lang="scss">
-
 </style>
