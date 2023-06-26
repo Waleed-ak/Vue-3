@@ -1,5 +1,5 @@
 import compression from "vite-plugin-compression";
-import { resolve } from 'node:path/win32';
+import { resolve } from "node:path";
 import {
   splitVendorChunkPlugin,
   BuildOptions,
@@ -11,7 +11,6 @@ import {
   UserConfig,
 } from "vite";
 import vue from "@vitejs/plugin-vue";
-import { resolve } from "node:path";
 const plugins = [vue(), compression(), splitVendorChunkPlugin()];
 
 const rootDir = process.cwd();

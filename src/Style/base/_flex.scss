@@ -1,10 +1,13 @@
 @use "sass:math";
 .cols {
   display: flex;
-  margin: -0.4rem;
+  margin: 0;
+  padding: 0;
   &.col {
     flex: none;
     display: block;
+    box-sizing: border-box;
+    margin: 0;
   }
 }
 .fx {
@@ -19,7 +22,8 @@
     &.#{$x} {
       flex-direction: $y;
     }
-  .fxFlex {
-    flex: 1;
+    .fxFlex {
+      flex: 1;
+    }
   }
 }

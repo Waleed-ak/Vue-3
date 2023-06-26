@@ -1,5 +1,3 @@
-import compression from "vite-plugin-compression";
-
 import {
   splitVendorChunkPlugin,
   BuildOptions,
@@ -13,7 +11,7 @@ import {
 import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
 
-const plugins = [vue(), compression(), splitVendorChunkPlugin()];
+const plugins = [vue(), splitVendorChunkPlugin()];
 const root = process.cwd();
 const rootDir = resolve(root, "src");
 const outDir = resolve(root, "dist");
@@ -66,76 +64,6 @@ const currentBuild = (command: string, mode: string): BuildOptions => {
     },
   };
 };
-
-function defineCssConfig() {
-  // https://vitejs.dev/config/
-  return defineConfig((env: ConfigEnv): UserConfig => {
-    return {
-      optimizeDeps: {
-        include: ["vue"],
-      },
-      appType: "mpa",
-      plugins,
-      build: currentBuild(env.command, env.mode),
-      resolve: {
-        alias: {
-          "@": rootDir,
-        },
-      },
-    };
-  });
-}
-
-function GetServer(page: string): ServerOptions {
-  function configure(proxy: HttpProxy.Server, _options: ProxyOptions): void {
-    proxy.on("error", (err, _req, _res) => {
-      console.error("=>");
-      console.error("Proxy-Error-------------------");
-      console.error(err);
-      console.error();
-    });
-    proxy.on("proxyReq", (proxyReq, req, _res) => {
-      // console.log("Sending Request:")
-      // console.log(req.method)
-      // console.log(req.url)
-      console.log("=>");
-      console.log("Proxy-Request------------------");
-      console.log("method  -> ", proxyReq.method);
-      console.log("protocol-> ", proxyReq.protocol);
-      console.log("host    -> ", proxyReq.host);
-      console.log("path    -> ", proxyReq.path);
-      console.log("Proxy-Header->");
-      console.log(proxyReq.getHeaders());
-      console.log();
-    });
-    proxy.on("proxyRes", (proxyRes, req, _res) => {
-      console.log("=>");
-      console.log("Proxy-Response-----------------");
-      console.log("statusCode-> ", proxyRes.statusCode);
-      console.log("url       -> ", req.url);
-      console.log("Proxy-Header->");
-      console.log(proxyRes.headers);
-      console.log();
-    });
-  }
-
-  return {
-    port: 54880,
-    proxy: {
-      "/api": {
-        target: "http://localhost:5555",
-        changeOrigin: true,
-        headers: {
-          Connection: "keep-alive",
-          "Cache-Control": "no-cache",
-        },
-        configure,
-      },
-    },
-  };
-}
-
-// export { defineCssConfig };
 
 function defineCssConfig() {
   // https://vitejs.dev/config/

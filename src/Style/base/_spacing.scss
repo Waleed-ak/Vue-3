@@ -2,8 +2,8 @@
   .#{$t1} {
     @each $d1, $d2 in ((l, left), (t, top), (r, right), (b, bottom), (lr, (left, right)), (tb, (top, bottom))) {
       &#{$d1} {
-        @for $z from 0 to 9 {
-          &#{$z} {
+        @for $z from 0 through 8 {
+          &-#{$z} {
             @each $d in $d2 {
               #{$t2}-#{$d}: ($z * 0.25) rem;
             }
@@ -14,8 +14,8 @@
   }
 }
 
-@for $l from 0 to 6 {
-  .lh#{$l} {
+@for $l from 0 through 5 {
+  .lh-#{$l} {
     line-height: (1 + $l * 0.1);
   }
 }

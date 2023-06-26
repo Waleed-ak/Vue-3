@@ -1,7 +1,7 @@
 :root {
   --Color: rgba(255, 255, 255, 0.8666666667);
-  --Color-a: #67f;
-  --Color-a-hover: rgba(255, 255, 255, 0.8666666667);
+  --ColorLink: #67f;
+  --ColorLinkHover: rgba(255, 255, 255, 0.8666666667);
   --BgColor: #222;
   --BgColorHover: #333;
   --ColorPrimary: #fff;
@@ -26,7 +26,7 @@
   --ColorDangerHover: #942f2f;
   font-size: 1rem;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.4rem;
   font-weight: 400;
   color-scheme: light dark;
   color: var(--Color);
@@ -41,8 +41,8 @@
 @media (prefers-color-scheme: light) {
   :root {
     --Color: rgba(255, 255, 255, 0.8666666667);
-    --Color-a: #67f;
-    --Color-a-hover: rgba(255, 255, 255, 0.8666666667);
+    --ColorLink: #67f;
+    --ColorLinkHover: rgba(255, 255, 255, 0.8666666667);
     --BgColor: #222;
     --BgColorHover: #333;
     --ColorPrimary: #fff;
@@ -54,8 +54,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --Color: rgba(0, 0, 0, 0.8666666667);
-    --Color-a: #980;
-    --Color-a-hover: rgba(0, 0, 0, 0.8666666667);
+    --ColorLink: #980;
+    --ColorLinkHover: rgba(0, 0, 0, 0.8666666667);
     --BgColor: #ddd;
     --BgColorHover: #ccc;
     --ColorPrimary: #000;
@@ -81,11 +81,11 @@
 }
 a {
   font-weight: 500;
-  color: var(--Color-a);
+  color: var(--ColorLink);
   text-decoration: inherit;
 }
 a:hover {
-  color: var(--Color-a-hover);
+  color: var(--ColorLinkHover);
 }
 
 h1 {
